@@ -1,16 +1,23 @@
-<h3>
-  Total amount: <%= @group_contracts.sum { |gc| gc.contract.amount } %>
-</h3>
-<ul>
-  <% @group_contracts.each do |group_contract| %>
-    <li>
-      <div>
+<div>
+  <h3>
+    Total amount: <%= @group_contracts.sum { |gc| gc.contract.amount } %>
+  </h3>
+</div>
+<div>
+  <ul>
+    <% @group_contracts.each do |group_contract| %>
+      <li>
         <div>
+          <div>
+          </div>
+          <h4><%= group_contract.contract.name.capitalize %></h4>
+          <h4><%= group_contract.contract.amount %></h4>
+          <h4><%= group_contract.contract.created_at %></h4>
         </div>
-        <h4><%= group_contract.contract.name.capitalize %></h4>
-        <h4><%= group_contract.contract.amount %></h4>
-        <h4><%= group_contract.contract.created_at %></h4>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <%= button_to "Add contract", new_group_contract_path(group_id: params[:id]), method: :get, class: ''  %>
+</div>
