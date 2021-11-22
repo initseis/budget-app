@@ -1,0 +1,29 @@
+<section>
+  <div>
+    <h2>Add Contract</h2>
+    <%= form_with model: @contract, url: group_contracts_path, method: :post, class: 'add-contract-form' do |form| %>
+      <br>
+      <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name, :required => true %>
+      </div>
+      <br>
+      <div>
+        <%= form.label :amount %><br>
+        <%= form.text_field :amount, :required => true %>
+      </div>
+      <br>
+      <div>
+        <% @groups.each do |group| %>
+          <%= form.label group.name %>
+          <%= check_box_tag "groups[]", group.id %>
+        <% end %>
+      </div>
+      <br>
+      <div>
+        <%= form.submit "Save", class: '' %>
+      </div>
+    <% end %>
+  </div>
+</section>
+<%= javascript_pack_tag 'form_validation' %>
