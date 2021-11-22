@@ -1,0 +1,21 @@
+<section>
+  <div>
+    <h2>Add Category</h2>
+    <%= form_with model: @group, url: groups_path, method: :post, class: '' do |form| %>
+      <br>
+      <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name, :required => true %>
+      </div>
+      <br>
+      <div>
+        <%= form.label :icon %><br>
+        <%= form.text_field :icon, :required => true %>
+      </div>
+      <br>
+      <div>
+        <%= form.submit "Add category", class: '' %>
+      </div>
+    <% end %>
+  </div>
+</section>
