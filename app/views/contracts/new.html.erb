@@ -1,7 +1,7 @@
 <section>
   <div>
     <h2>Add Contract</h2>
-    <%= form_with model: @contract, url: group_contracts_path, method: :post, class: '' do |form| %>
+    <%= form_with model: @contract, url: group_contracts_path, method: :post, class: 'add-contract-form' do |form| %>
       <br>
       <div>
         <%= form.label :name %><br>
@@ -21,8 +21,9 @@
       </div>
       <br>
       <div>
-        <%= form.submit "Add category", class: '' %>
+        <%= form.submit "Save", class: '' %>
       </div>
     <% end %>
   </div>
 </section>
+<%= javascript_pack_tag 'form_validation' %>
