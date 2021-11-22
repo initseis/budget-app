@@ -9,13 +9,9 @@ class ContractsController < ApplicationController
       if @contract = current_user.contracts.create(contract_params)
         params[:groups].each do |group|
           throw error unless @contract.group_contracts.create(group_id: group)
-            
-          # else
-            
-          # end
         end
         flash[:notice] = 'Contract added successfully'
-        redirect_to groups_url
+        redirect_to group_url(id: params[:group_id])
       else
         throw error
       end
