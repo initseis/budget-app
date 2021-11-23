@@ -90,6 +90,10 @@ The Rails Budget project is about a mobile web application where you can manage 
 - Twitter: [@sevinchek](https://twitter.com/sevinchek)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/sevinchek)
 
+## Credits
+
+Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
