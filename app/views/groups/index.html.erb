@@ -19,7 +19,7 @@
               <div class="w-75 d-flex flex-column">
                 <div class="w-100 d-flex align-items-center pb-2">
                   <h5 class="m-0 w-50"><%= group.name.capitalize %></h5>
-                  <h5 class="m-0 w-50 nova-bold">Total: $<%= group.group_contracts.sum { |gc| gc.contract.amount } %></h5>
+                  <h5 class="m-0 w-50 nova-bold">$<%= group.group_contracts.sum { |gc| gc.contract.amount } %></h5>
                 </div>
                 <div class="w-100 d-flex align-items-end border-top pt-2">
                   <h6 class="m-0"><%= group.updated_at.strftime("%b %d, %Y") %></h6>
