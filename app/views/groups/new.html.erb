@@ -1,20 +1,21 @@
-<section>
-  <div>
-    <h2>Add Category</h2>
-    <%= form_with model: @group, url: groups_path, method: :post, class: '' do |form| %>
-      <br>
-      <div>
-        <%= form.label :name %><br>
-        <%= form.text_field :name, :required => true %>
+<header class="container-fluid bg-primary py-2 px-3">
+  <nav class="d-flex w-100 justify-content-between align-items-center">
+    <%= link_to(groups_path) do %>
+      <%= image_tag "back.svg", width: 20 %>
+    <% end %>
+    <h6 class="text-white m-0 nova-bold">ADD CATEGORY</h6>
+    <input type="submit" value="Add" form="add-group-form" class='bg-transparent border-0 text-white nova-bold'>
+  </nav>
+</header>
+<section class="container-fluid w-100">
+  <%= render "flash_notification" %>
+  <div class="row mt-3">
+    <%= form_with model: @group, url: groups_path, method: :post, class: '', id: 'add-group-form' do |form| %>
+      <div class="mb-3">
+        <%= form.text_field :name, :required => true, placeholder: 'Name', class: 'form-control py-1', required: true %>
       </div>
-      <br>
-      <div>
-        <%= form.label :icon %><br>
-        <%= form.text_field :icon, :required => true %>
-      </div>
-      <br>
-      <div>
-        <%= form.submit "Add category", class: '' %>
+      <div class="mb-3">
+        <%= form.url_field :icon, :required => true, placeholder: 'Icon', class: 'form-control py-1', required: true %>
       </div>
     <% end %>
   </div>
