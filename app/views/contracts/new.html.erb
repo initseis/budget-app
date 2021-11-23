@@ -1,0 +1,31 @@
+<header class="container-fluid bg-primary py-2 px-3">
+  <nav class="d-flex w-100 justify-content-between align-items-center">
+    <%= link_to(:back) do %>
+      <%= image_tag "back.svg", width: 20 %>
+    <% end %>
+    <h6 class="text-white m-0 nova-bold">ADD CONTRACT</h6>
+    <input type="submit" value="Save" form="add-contract-form" class='bg-transparent border-0 text-white nova-bold'>
+  </nav>
+</header>
+<section class="container-fluid w-100 px-4">
+  <%= render "flash_notification" %>
+  <div class="row mt-3">
+    <%= form_with model: @contract, url: group_contracts_path, method: :post, class: '', id: 'add-contract-form' do |form| %>
+      <div class="mb-3">
+        <%= form.text_field :name, :required => true, placeholder: 'Name', class: 'form-control py-1', required: true %>
+      </div>
+      <div class="mb-3">
+        <%= form.text_field :amount, :required => true, placeholder: 'Amount', class: 'form-control py-1', required: true %>
+      </div>
+      <div>
+        <h6>Categories:</h6>
+        <% @groups.each do |group| %>
+          <%= check_box_tag "groups[]", group.id %>
+          <%= form.label group.name %>
+          <br>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
+<%= javascript_pack_tag 'form_validation' %>

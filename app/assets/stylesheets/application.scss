@@ -1,0 +1,44 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/assets/Proxima_Nova_Light.otf") format("opentype");
+}
+
+$primary: #3778c2 !default;
+$secondary: #5fb523 !default;
+$dark: #434b54 !default;
+
+@import "bootstrap";
+
+* {
+  font-family: "Proxima Nova", sans-serif;
+  color: #434b54;
+}
+
+.nova-light {
+  font-family: "Proxima Nova", sans-serif;
+}
+
+.nova-bold {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: bold;
+}
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets

@@ -1,0 +1,30 @@
+<header class="container-fluid bg-primary py-2 px-3">
+  <nav class="d-flex w-100 justify-content-between align-items-center">
+    <%= link_to(groups_path) do %>
+      <%= image_tag "back.svg", width: 20 %>
+    <% end %>
+    <h6 class="text-white m-0 nova-bold">REGISTER</h6>
+    <input type="submit" value="Next" form="new_user" class='bg-transparent border-0 text-white nova-bold'>
+  </nav>
+</header>
+<section class="container-fluid w-100 mt-3">
+  <%= render "flash_notification" %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="mb-3">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name', class: 'form-control nova-light text-dark', required: true %>
+    </div>
+    <div class="mb-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'form-control nova-light text-dark', required: true %>
+    </div>
+    <div class="mb-3">
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password', class: 'form-control nova-light text-dark', required: true %>
+    </div>
+    <div class="mb-3">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password Confirmation', class: 'form-control nova-light text-dark', required: true %>
+    </div>
+  <% end %>
+</section>
