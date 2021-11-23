@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/assets/Proxima_Nova_Light.otf") format("opentype");
+}
+
+$primary: #3778c2 !default;
+$secondary: #5fb523 !default;
+$dark: #434b54 !default;
+
+@import "bootstrap";
+
+* {
+  font-family: "Proxima Nova", sans-serif;
+  color: #434b54;
+}
+
+.nova-light {
+  font-family: "Proxima Nova", sans-serif;
+}
+
+.nova-bold {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: bold;
+}
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
