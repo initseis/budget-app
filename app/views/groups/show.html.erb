@@ -1,23 +1,31 @@
-<div>
-  <h3>
-    Total amount: <%= @group_contracts.sum { |gc| gc.contract.amount } %>
-  </h3>
-</div>
-<div>
-  <ul>
-    <% @group_contracts.each do |group_contract| %>
-      <li>
-        <div>
-          <div>
-          </div>
-          <h4><%= group_contract.contract.name.capitalize %></h4>
-          <h4><%= group_contract.contract.amount %></h4>
-          <h4><%= group_contract.contract.created_at %></h4>
-        </div>
-      </li>
+<header class="container-fluid bg-primary py-2 px-3">
+  <nav class="d-flex w-100 justify-content-between align-items-center">
+    <%= link_to(groups_path) do %>
+      <%= image_tag "back.svg", width: 20 %>
     <% end %>
-  </ul>
-</div>
-<div>
-  <%= button_to "Add contract", new_group_contract_path(group_id: params[:id]), method: :get, class: ''  %>
-</div>
+    <h6 class="text-white m-0 nova-bold">CONTRACTS</h6>
+    <%= link_to "Add", new_group_contract_path(group_id: params[:id]), method: :get, class: 'text-white text-decoration-none nova-bold'  %>
+  </nav>
+</header>
+<section class="container-fluid vh-100 w-100 bg-light">
+  <%= render "flash_notification" %>
+  <div class="row d-flex justify-content-center text-center pt-3 text-primary" >
+    <h5 class='nova-bold'>
+      Total amount: $<%= @group_contracts.sum { |gc| gc.contract.amount } %>
+    </h5>
+  </div>
+  <div class="row p-2">
+    <ul class='m-0 p-0'>
+      <% @group_contracts.each do |group_contract| %>
+        <li class="d-flex justify-content-evenly py-3 bg-white mb-3 align-items-center">
+          <h6 class="m-0 w-25 text-center"><b><%= group_contract.contract.name.capitalize %></b></h6>
+          <h6 class="m-0 w-50 text-center"><%= group_contract.contract.created_at.strftime("%b %d, %Y") %></h6>
+          <h6 class="m-0 w-25 text-center nova-bold">$<%= group_contract.contract.amount %></h6>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="fixed-bottom px-3 pb-2">
+    <%= button_to "Add contract", new_group_contract_path(group_id: params[:id]), method: :get, class: 'w-100 p-1 bg-secondary border-secondary text-white rounded-2 nova-bold' %>
+  </div>
+</section>
