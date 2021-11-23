@@ -12,12 +12,19 @@
       <ul class='m-0 p-0'>
         <% @groups.each do |group| %>
           <%= link_to(group_path(group), class: 'text-decoration-none') do %>
-            <li class="d-flex justify-content-evenly py-3 bg-white mb-3 align-items-center">
-              <div class="w-25 text-center">
-                <img src=<%= group.icon %> width='20' />
+            <li class="d-flex justify-content-evenly p-3 bg-white mb-3 align-items-center">
+              <div class="w-25 text-center d-flex justify-content-start">
+                <img src=<%= group.icon %> width='60' />
               </div>
-              <h6 class="m-0 w-25 text-center"><%= group.name.capitalize %></h6>
-              <h6 class="m-0 w-25 text-center nova-bold">Total: $<%= group.group_contracts.sum { |gc| gc.contract.amount } %></h6>
+              <div class="w-75 d-flex flex-column">
+                <div class="w-100 d-flex align-items-center pb-2">
+                  <h5 class="m-0 w-50"><%= group.name.capitalize %></h5>
+                  <h5 class="m-0 w-50 nova-bold">Total: $<%= group.group_contracts.sum { |gc| gc.contract.amount } %></h5>
+                </div>
+                <div class="w-100 d-flex align-items-end border-top pt-2">
+                  <h6 class="m-0"><%= group.updated_at.strftime("%b %d, %Y") %></h6>
+                </div>
+              </div>
             </li>
           <% end %>
         <% end %>
