@@ -18,5 +18,8 @@ module BudgetApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join('/app/assets/fonts')
   end
 end
