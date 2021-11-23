@@ -4,9 +4,7 @@ class GroupsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    if user_signed_in?
-      @groups
-    end
+    @groups if user_signed_in?
   end
 
   def show
@@ -39,8 +37,6 @@ class GroupsController < ApplicationController
   end
 
   def set_user_groups
-    if user_signed_in?
-      @groups = current_user.groups.includes(group_contracts: :contract)
-    end
+    @groups = current_user.groups.includes(group_contracts: :contract) if user_signed_in?
   end
 end
