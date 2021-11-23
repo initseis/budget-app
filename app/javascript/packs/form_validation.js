@@ -1,4 +1,4 @@
-const contractForm = document.querySelector(".add-contract-form");
+const contractForm = document.querySelector("#add-contract-form");
 const checkboxes = contractForm.querySelectorAll("#groups_");
 const checkboxLength = checkboxes.length;
 const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
