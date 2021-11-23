@@ -2,7 +2,11 @@
 
 The Rails Budget project is about a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
-<img width="848" alt="imagen" src="https://user-images.githubusercontent.com/39852288/142977974-c994fe88-6bfa-4f5d-950c-285dc8bad9b2.png">
+<img width="944" alt="imagen" src="https://user-images.githubusercontent.com/39852288/142979078-56246d00-cae3-4640-96eb-31019e9f7140.png">
+
+## Live Demo
+
+[Heroku](https://rails-budget.herokuapp.com/)
 
 ## Built With
 
